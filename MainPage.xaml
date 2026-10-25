@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyExcelMAUIApp.MainPage">
+    <Grid RowSpacing="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0" Orientation="Horizontal">
+            <HorizontalStackLayout Spacing="1">
+                <HorizontalStackLayout.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="#512BD4" />
+                        <Setter Property="TextColor" Value="White" />
+                        <Setter Property="FontSize" Value="11" />
+                        <Setter Property="Padding" Value="6,6" />
+                        <Setter Property="MinimumWidthRequest" Value="0" />
+                        <Setter Property="MinimumHeightRequest" Value="34" />
+                    </Style>
+                </HorizontalStackLayout.Resources>
+
+                <Button Text="Зберегти" Clicked="SaveButton_Clicked" />
+                <Button Text="Прочитати" Clicked="ReadButton_Clicked" />
+                <Button Text="Вийти" Clicked="ExitButton_Clicked" />
+                <Button Text="Порахувати" Clicked="CalculateButton_Clicked" />
+                <Button x:Name="ModeButton" Text="Режим: ВИРАЗИ" Clicked="ToggleModeButton_Clicked" />
+                <Button Text="Довідка" Clicked="HelpButton_Clicked" />
+                <Button Text="Видалити рядок" Clicked="DeleteRowButton_Clicked" />
+                <Button Text="Видалити стовпчик" Clicked="DeleteColumnButton_Clicked" />
+                <Button Text="Додати рядок" Clicked="AddRowButton_Clicked" />
+                <Button Text="Додати стовпчик" Clicked="AddColumnButton_Clicked" />
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <Label x:Name="StatusLabel"
+               Grid.Row="1"
+               IsVisible="False"
+               TextColor="Red"
+               FontSize="13"
+               Padding="8,3"
+               LineBreakMode="TailTruncation" />
+
+        <Entry x:Name="textInput"
+               Grid.Row="2"
+               Placeholder="Введіть формулу вибраної клітинки" />
+
+        <ScrollView Grid.Row="3" Orientation="Both">
+            <Grid x:Name="grid" ColumnSpacing="2" RowSpacing="2" />
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MyExcelMAUIApp/MyExcelMAUIApp.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>
